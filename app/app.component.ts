@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+    moduleId: module.id,
     selector: 'my-app',
     template: `
         <h1>{{title}}</h1>
         <nav>
-            <a [routerLink]="dashboardLink">dashboard</a>
-            <a [routerLink]="heroLink">Heroes</a>
+            <a [routerLink]="dashboardLink" routerLinkActive="active">dashboard</a>
+            <a [routerLink]="heroLink" routerLinkActive="active">Heroes</a>
         </nav>
        <router-outlet></router-outlet>
-    `
+    `,
+    styleUrls:[ 'app.component.css' ]
 })
 export class AppComponent implements OnInit {
     heroLink:string = '/heroes';
