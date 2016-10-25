@@ -13,6 +13,6 @@ export class WikipediaSearchService {
         search.set('format', 'json');
         return this.jsonp.get('http://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK', { search })
                          .toPromise()
-                         .then((response) => response.json()[1]);
+                         .then((response) => response.json());
     }  
 }

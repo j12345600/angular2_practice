@@ -8,36 +8,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const router_1 = require('@angular/router');
-const hero_service_1 = require('./hero.service');
-let HeroesComponent = class HeroesComponent {
-    constructor(heroService, router) {
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var hero_service_1 = require('./hero.service');
+var HeroesComponent = (function () {
+    function HeroesComponent(heroService, router) {
         this.heroService = heroService;
         this.router = router;
     }
-    getHeroes() {
-        this.heroService.getHeroes().then(heroes => this.heroes = heroes);
-    }
-    ngOnInit() {
+    HeroesComponent.prototype.getHeroes = function () {
+        var _this = this;
+        this.heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes; });
+    };
+    HeroesComponent.prototype.ngOnInit = function () {
         this.getHeroes();
-    }
-    onSelect(hero) {
+    };
+    HeroesComponent.prototype.onSelect = function (hero) {
         this.selectedHero = hero;
-    }
-    gotoDetail() {
-        let link = ['/detail', this.selectedHero.id];
+    };
+    HeroesComponent.prototype.gotoDetail = function () {
+        var link = ['/detail', this.selectedHero.id];
         this.router.navigate(link);
-    }
-};
-HeroesComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'my-heroes',
-        templateUrl: 'heroes.component.html',
-        styleUrls: ['heroes.component.css']
-    }), 
-    __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.Router])
-], HeroesComponent);
+    };
+    HeroesComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'my-heroes',
+            templateUrl: 'heroes.component.html',
+            styleUrls: ['heroes.component.css']
+        }), 
+        __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.Router])
+    ], HeroesComponent);
+    return HeroesComponent;
+}());
 exports.HeroesComponent = HeroesComponent;
 //# sourceMappingURL=heroes.component.js.map

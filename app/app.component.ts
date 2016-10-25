@@ -9,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
             <a [routerLink]="dashboardLink" routerLinkActive="active">dashboard</a>
             <a [routerLink]="heroLink" routerLinkActive="active">Heroes</a>
         </nav>
-        
        <router-outlet></router-outlet>
+       <wiki-search> </wiki-search>
     `,
     styleUrls:[ 'app.component.css' ]
 })

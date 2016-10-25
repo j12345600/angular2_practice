@@ -8,25 +8,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const router_1 = require('@angular/router');
-const dashboard_component_1 = require('./dashboard.component');
-const heroes_component_1 = require('./heroes.component');
-const hero_detail_component_1 = require('./hero-detail.component');
-const routes = [
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var dashboard_component_1 = require('./dashboard.component');
+var heroes_component_1 = require('./heroes.component');
+var hero_detail_component_1 = require('./hero-detail.component');
+var routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
     { path: 'detail/:id', component: hero_detail_component_1.HeroDetailComponent },
     { path: 'heroes', component: heroes_component_1.HeroesComponent }
 ];
-let AppRoutingModule = class AppRoutingModule {
-};
-AppRoutingModule = __decorate([
-    core_1.NgModule({
-        imports: [router_1.RouterModule.forRoot(routes)],
-        exports: [router_1.RouterModule]
-    }), 
-    __metadata('design:paramtypes', [])
-], AppRoutingModule);
+var AppRoutingModule = (function () {
+    function AppRoutingModule() {
+    }
+    AppRoutingModule = __decorate([
+        core_1.NgModule({
+            imports: [router_1.RouterModule.forRoot(routes)],
+            exports: [router_1.RouterModule]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], AppRoutingModule);
+    return AppRoutingModule;
+}());
 exports.AppRoutingModule = AppRoutingModule;
 //# sourceMappingURL=app-routing.module.js.map

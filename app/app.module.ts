@@ -2,7 +2,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule }   from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { HttpModule,JsonpModule } from '@angular/http';
 
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -19,6 +19,7 @@ import { WikipediaSearchService } from './wikipedia-search.service';
 import { AppRoutingModule }     from './app-routing.module';
 @NgModule({
   imports: [
+    JsonpModule,
     BrowserModule,
     FormsModule,
     HttpModule,

@@ -8,33 +8,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const wikipedia_search_service_1 = require('./wikipedia-search.service');
-let WikipediaSearchComponent = class WikipediaSearchComponent {
-    constructor(wikipediasearchservice) {
+var core_1 = require('@angular/core');
+var wikipedia_search_service_1 = require('./wikipedia-search.service');
+var Item = (function () {
+    function Item(n, l) {
+        this.name = n;
+        this.link = l;
+    }
+    return Item;
+}());
+exports.Item = Item;
+var WikipediaSearchComponent = (function () {
+    function WikipediaSearchComponent(wikipediasearchservice) {
         this.wikipediasearchservice = wikipediasearchservice;
     }
-    ngOnInit() { }
-    search(term) {
+    WikipediaSearchComponent.prototype.ngOnInit = function () {
+    };
+    WikipediaSearchComponent.prototype.search = function (term) {
+        var _this = this;
         this.wikipediasearchservice.search(term)
-            .then(items => this.items = items);
-    }
-};
-WikipediaSearchComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'wiki-search',
-        template: `
-        <div>
-        <h2>Wikipedia Search</h2>
-        <input #term type="text" (keyup)="search(term.value)">
-        <ul>
-            <li *ngFor="let item of items">{{item}}</li>
-        </ul>
-        </div>
-    `
-    }), 
-    __metadata('design:paramtypes', [wikipedia_search_service_1.WikipediaSearchService])
-], WikipediaSearchComponent);
+            .then(function (items) {
+            _this.items = [];
+            var len = items[0].length;
+            for (var i = 0; i < len; i++) {
+                _this.items.push(new Item(items[1][i], items[3][i]));
+            }
+        });
+    };
+    WikipediaSearchComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'wiki-search',
+            template: "\n        <div>\n        <h2>Wikipedia Search</h2>\n        <input #term type=\"text\" (keyup)=\"search(term.value)\">\n        <ul>\n            <li *ngFor=\"let item of items\">\n                <a  href=\"{{item.link}}\">{{item.name}}</a>\n            </li>\n        </ul>\n        </div>\n    "
+        }), 
+        __metadata('design:paramtypes', [wikipedia_search_service_1.WikipediaSearchService])
+    ], WikipediaSearchComponent);
+    return WikipediaSearchComponent;
+}());
 exports.WikipediaSearchComponent = WikipediaSearchComponent;
 //# sourceMappingURL=wikipedia-search.component.js.map
