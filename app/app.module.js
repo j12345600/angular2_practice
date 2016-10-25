@@ -11,11 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require('@angular/core');
 const platform_browser_1 = require('@angular/platform-browser');
 const forms_1 = require('@angular/forms');
+const http_1 = require('@angular/http');
+// Imports for loading & configuring the in-memory web api
+const angular_in_memory_web_api_1 = require('angular-in-memory-web-api');
+const in_memory_data_service_1 = require('./in-memory-data.service');
 const app_component_1 = require('./app.component');
 const hero_detail_component_1 = require('./hero-detail.component');
 const heroes_component_1 = require('./heroes.component');
 const hero_service_1 = require('./hero.service');
 const dashboard_component_1 = require('./dashboard.component');
+const wikipedia_search_component_1 = require('./wikipedia-search.component');
+const wikipedia_search_service_1 = require('./wikipedia-search.service');
 const app_routing_module_1 = require('./app-routing.module');
 let AppModule = class AppModule {
 };
@@ -24,16 +30,20 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
+            http_1.HttpModule,
+            angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService),
             app_routing_module_1.AppRoutingModule
         ],
         declarations: [
             app_component_1.AppComponent,
             hero_detail_component_1.HeroDetailComponent,
             heroes_component_1.HeroesComponent,
-            dashboard_component_1.DashboardComponent
+            dashboard_component_1.DashboardComponent,
+            wikipedia_search_component_1.WikipediaSearchComponent
         ],
         providers: [
-            hero_service_1.HeroService
+            hero_service_1.HeroService,
+            wikipedia_search_service_1.WikipediaSearchService
         ],
         bootstrap: [app_component_1.AppComponent]
     }), 

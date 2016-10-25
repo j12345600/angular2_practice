@@ -9,31 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-// <wiki-search> </wiki-search>
-let AppComponent = class AppComponent {
-    constructor() {
-        this.heroLink = '/heroes';
-        this.dashboardLink = '/dashboard';
-        this.title = 'Tour of Heroes';
+const wikipedia_search_service_1 = require('./wikipedia-search.service');
+let WikipediaSearchComponent = class WikipediaSearchComponent {
+    constructor(wikipediasearchservice) {
+        this.wikipediasearchservice = wikipediasearchservice;
     }
     ngOnInit() { }
+    search(term) {
+        this.wikipediasearchservice.search(term)
+            .then(items => this.items = items);
+    }
 };
-AppComponent = __decorate([
+WikipediaSearchComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'my-app',
+        selector: 'wiki-search',
         template: `
-        <h1>{{title}}</h1>
-        <nav>
-            <a [routerLink]="dashboardLink" routerLinkActive="active">dashboard</a>
-            <a [routerLink]="heroLink" routerLinkActive="active">Heroes</a>
-        </nav>
-        
-       <router-outlet></router-outlet>
-    `,
-        styleUrls: ['app.component.css']
+        <div>
+        <h2>Wikipedia Search</h2>
+        <input #term type="text" (keyup)="search(term.value)">
+        <ul>
+            <li *ngFor="let item of items">{{item}}</li>
+        </ul>
+        </div>
+    `
     }), 
-    __metadata('design:paramtypes', [])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+    __metadata('design:paramtypes', [wikipedia_search_service_1.WikipediaSearchService])
+], WikipediaSearchComponent);
+exports.WikipediaSearchComponent = WikipediaSearchComponent;
+//# sourceMappingURL=wikipedia-search.component.js.map

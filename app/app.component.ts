@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+// <wiki-search> </wiki-search>
 @Component({
     moduleId: module.id,
     selector: 'my-app',
@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
             <a [routerLink]="dashboardLink" routerLinkActive="active">dashboard</a>
             <a [routerLink]="heroLink" routerLinkActive="active">Heroes</a>
         </nav>
+        
        <router-outlet></router-outlet>
     `,
     styleUrls:[ 'app.component.css' ]
